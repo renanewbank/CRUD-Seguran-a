@@ -125,11 +125,4 @@ if ($acao === 'login') {
 
     header("Location: ../public/painel.php");
     exit;
-
-    // Segurança extra: novo ID de sessão
-    $_SESSION['login'] = $user['email'];
-    $_SESSION['tipo']  = $user['tipo'];
-
-    header("Location: ../public/painel.php");
-    exit;
 }
