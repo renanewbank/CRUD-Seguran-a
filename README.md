@@ -25,43 +25,10 @@ Este é um sistema simples de cadastro e login de usuários com painel administr
 
 ---
 
-## 🧑‍💻 Instalação
-
-1. Clone este repositório:
-
-   ```bash
-   git clone https://github.com/seu-usuario/seu-repositorio.git
-   cd seu-repositorio
-   ```
-
-2. Crie o banco de dados:
-
-   - Execute o script `criar_banco.sql` no seu MySQL:
-
-     ```sql
-     source ./database/criar_banco.sql;
-     ```
-
-3. Configure a conexão com o banco:
-
-   - Edite `config/conexao.php` com os dados do seu MySQL.
-
-4. Inicie um servidor local:
-
-   - Com PHP instalado:
-
-     ```bash
-     php -S localhost:8000 -t public
-     ```
-
-   - Acesse `http://localhost:8000/login.php`
-
----
-
 ## 🔐 Credenciais padrão
 
 - **Usuário Admin**
-  - Email: `admin@admin.com`
+  - Email: `adm@adm.com`
   - Senha: `Admin123!`
 
 ---
@@ -72,18 +39,25 @@ Este é um sistema simples de cadastro e login de usuários com painel administr
 userregister/
 ├── config/
 │   └── conexao.php
+├── controllers/
+│   └── processa.php
 ├── database/
 │   └── criar_banco.sql
-├── public/
-│   ├── login.php
-│   ├── cadastro.php
-│   ├── painel.php
 │   └── criar_usuario.php
-├── src/
-│   └── processa.php
-├── assets/
-│   ├── style.css
-│   └── cookies.js
+│   └── deletar_usuario.php
+│   └── editar_usuario.php
+├── logs/
+│   └── cadastros.log
+│   └── erros.log
+│   └── logins.log
+│   └── tentativas.log
+├── public/
+│   └── login.php
+│   └── cadastro.php
+│   └── painel.php
+│   └── sair.php
+│   └── style.css
+
 ```
 
 ---
@@ -101,12 +75,7 @@ O sistema exibe uma janela de confirmação de cookies, solicitando o aceite do 
 - Logs de login
 - Testes automatizados
 
----
-
-## 📄 Licença
-
-Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
 ---
 
-Desenvolvido com 💻 por [Seu Nome].
+Desenvolvido por Gabriel Francisco, Pamella Sotomayer e Renan Ewbank.
