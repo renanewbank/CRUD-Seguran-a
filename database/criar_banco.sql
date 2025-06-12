@@ -11,7 +11,7 @@ CREATE TABLE `usuario` (
   `tipo` enum('admin','user') DEFAULT 'user'
 );
 
---Senha original: Admin123!
+-- Senha original: Admin123!
 INSERT INTO `usuario` (`id`, `nome`, `email`, `senha_hash`, `tipo`) VALUES
 (1, 'Administrador', 'adm@adm.com', '$2y$10$OG9jKA4UWAEHsxh4/m/Ig.a4KKsC0pD9v/.18u31IaH0/KjcTnJyu', 'admin'),
 (2, 'renan', 'renan@gmail.com', '$2y$10$Hn1eC5k6To7RQsxgeoJt0eHLWuo24G.zmy5SzHs1Ay/kCiJFmwVcm', 'user'),
