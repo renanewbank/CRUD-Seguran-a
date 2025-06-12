@@ -4,18 +4,6 @@ Este é um sistema simples de cadastro e login de usuários com painel administr
 
 ---
 
-## 📸 Screenshots
-
-### Login
-
-![Tela de Login](./public/imgs/login.png)
-
-### Painel Administrativo
-
-![Painel Admin](./public/imgs/painel.png)
-
----
-
 ## ⚙️ Funcionalidades
 
 - Cadastro de novos usuários
