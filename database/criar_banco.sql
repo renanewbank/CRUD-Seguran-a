@@ -11,7 +11,6 @@ CREATE TABLE IF NOT EXISTS usuario (
     tipo ('admin', 'user') DEFAULT 'user'
 );
 
---Senha original: admin123
 INSERT INTO usuario (email, senha_hash, tipo)
 VALUES (
     'admin@admin.com',
