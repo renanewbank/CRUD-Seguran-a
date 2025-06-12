@@ -101,7 +101,7 @@ if ($acao === 'login') {
             $_SESSION['bloqueio_login'] = time() + (1 * 60); // 1 minuto de bloqueio
         }
 
-        header("Location: ../public/login.php?erro=2");
+        header("Location: ../public/login.php?erro=1");
         exit;
     }
 
