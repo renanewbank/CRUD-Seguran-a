@@ -1,0 +1,37 @@
+body {
+    background-color: #3a2048;
+    color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.content {
+    width: 500px;
+    background-color: white;
+    border-radius: 12px;
+}
+
+input.form-control, select.form-select {
+    cursor: pointer;
+    border: 1px solid #c9c9c9;
+}
+
+input.form-control:focus, select.form-select:focus {
+    border-color: #7a46db;
+    outline: none;
+}
+.btn {
+    cursor: pointer;
+}
+.btn-primary {
+    background-color: #7a46db;
+    border-color: #7a46db;
+}
+.btn-primary:hover {
+    background-color: #4c2e84;
+    border-color: #4c2e84;
+}
+
+.btn-secondary {
+    background-color: #979797;
+    border-color: #979797;
+}
