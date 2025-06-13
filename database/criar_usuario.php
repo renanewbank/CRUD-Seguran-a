@@ -11,13 +11,35 @@ if (!isset($_SESSION['login']) || $_SESSION['tipo'] !== 'admin') {
 
 require __DIR__ . '/../config/conexao.php';
 
+// Controle de sessão
+$tempo_inatividade = 300; // 5 minutos = 300 segundos
+
+if (isset($_SESSION['ultimo_acesso'])) {
+    $tempo_passado = time() - $_SESSION['ultimo_acesso'];
+    if ($tempo_passado > $tempo_inatividade) {
+        session_unset();     // limpa variáveis de sessão
+        session_destroy();   // destrói a sessão
+        header("Location: login.php?expirado=1");
+        exit();
+    }
+}
+if (isset($_GET['expirado'])) {
+    echo "<p style='color:red;'>Sua sessão expirou por inatividade.</p>"; // Informa sessão expirada
+}
+
+
+$_SESSION['ultimo_acesso'] = time(); // Atualiza o tempo de último acesso
+
+
 $msg = '';
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nome  = $_POST['nome'] ?? '';
     $email = $_POST['email'] ?? '';
     $senha = $_POST['senha'] ?? '';
     $tipo  = $_POST['tipo'] ?? 'user';
 
+    
     if (!$nome || !$email || !$senha) {
         $msg = "Preencha todos os campos.";
     } else {
@@ -34,6 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -48,13 +71,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="container">
         <h2>Criar novo usuário</h2>
         
-        <?php if ($msg): ?>
-            <div class="alert alert-info text-center">
-                <?= htmlspecialchars($msg) ?>
+        <?php if (isset($_GET['msg'])): ?>
+            <div class="alert alert-info text-center alert-dismissible fade show" role="alert">
+                <i class="bi bi-info-circle me-2"></i>
+                <?= htmlspecialchars($_GET['msg']) ?>
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
             </div>
         <?php endif; ?>
         
-        <form method="POST" novalidate>
+        <form method="POST"  action="../controllers/processa.php" >
+            <input type="hidden" name="acao" value="cadastrar">
+
             <div class="mb-3">
                 <label for="nome" class="form-label">Nome do usuário:</label>
                 <input type="text" name="nome" class="form-control" id="nome" required value="<?= htmlspecialchars($_POST['nome'] ?? '') ?>">
