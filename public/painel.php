@@ -58,7 +58,7 @@ $msg = $_GET['msg'] ?? '';
             <div class="alert alert-info"><?= htmlspecialchars($msg) ?></div>
         <?php endif; ?>
 
-        <table class="table table-dark table-striped">
+        <table class="table table-dark table-striped text-center">
             <thead>
                 <tr>
                     <th>Nome</th>
